@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	setlocale(0, "");
+
+	cout << "Выбор погоды\n\n";
+
+	cout << "[1]Лето\n";
+	cout << "[2]Осень\n";
+	cout << "[3]Зима\n";
+	cout << "[4]Весна\n";
+
+	int season;
+	cout << "Выберите погоду : \n";
+	cin >> season;
+
+	if (season == 1)
+	{
+		cout << "Сейчас лето, можно одеть шорты и майку!";
+	}
+	else
+	
+		if (season == 2)
+		{
+			cout << "Сейчас осень, лучше одеться потеплее и взять зонтик!";
+		}
+		else
+	
+			if (season == 3)
+			{
+				cout << "Сейчас зима, пора играть в снежки! ";
+			}
+			else
+				if(season == 4)
+				{
+					cout << "Сейчас весна, можно пойти на пикник! ";
+				}
+				else
+
+				{
+					cout << "Такого времени года нет, извините ";
+				}
+	
+	return 0;
+}

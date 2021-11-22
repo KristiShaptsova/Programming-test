@@ -1,0 +1,183 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	setlocale(0, "");
+	short figure, line, lenghtLine, width, i = 0;
+	char textureLine;
+
+	cout << "1[+] Программа <Геометрические фигуры>\n\n\n";
+	cout << "[1] Линия\n\n[2] Квадрат\n[3] Прямоугольник\n[4]Периметр квадрата\n[5]Периметр прямоугольника\n[6]Треугольник\n[7]Плюсик\n\n[+] Выберите фигуру:";
+	cin >> figure;
+
+	switch (figure) {
+	case 1:
+		system("cls");
+		cout << "[+] Фигура: <Линия>\n\n[+]Выберите тип:\n[1] Горизонтальная\n[2] Вертикальная\n\n[+] Выберите тип:";
+		cin >> line;
+
+		switch (line) {
+		case 1:
+			system("cls");
+			cout << "Вы выбрали горизонтальную линию\n\n[+] Длина линии:";
+			cin >> lenghtLine;
+
+			cout << "\n[+] Текстура линии:";
+			cin >> textureLine;
+			cout << "[+] Результат:\n";
+			while (i < lenghtLine)
+			{
+				cout << textureLine;
+				i++;
+			}
+			break;
+		case 2:
+		{
+			system("cls");
+			cout << "Вы выбрали вертикальную линию\n\n[+] Длина линии:";
+			cin >> lenghtLine;
+
+			cout << "\n[+] Текстура линии:";
+			cin >> textureLine;
+			cout << "[+] Результат:\n";
+			while (i < lenghtLine)
+			{
+				cout << textureLine << endl;
+				i++;
+			}
+			break;
+		}
+		default:
+			break;
+		}
+		break;
+	default: cout << "Вы выбрали неверный тип фигуры, попробуйсте снова" << endl;
+		break;
+	case 2: {
+		system("cls");
+		cout << "[+] Квадрат\n\n";
+		cout << "[+] Размер: " << endl;
+		cin >> lenghtLine;
+		cout << "[+] Текстура: ";
+		char texture;
+		cin >> texture;
+		for (int x = 0; x < lenghtLine; x++) {
+			for (int y = 0; y < lenghtLine; y++) {
+				cout << texture << " ";
+			}
+			cout << "\n";
+		}
+		break;
+	}
+	case 3:
+	{
+		system("cls");
+		cout << "Прямоугольник \n\n";
+		cout << "[+] Введите длину:";
+		cin >> lenghtLine;
+		cout << "\n[+] Введите ширину:";
+		cin >> width;
+		cout << "[+] Текстура: ";
+		cin >> textureLine;
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < lenghtLine; y++) {
+				cout << textureLine << " ";
+			}
+			cout << "\n";
+		}
+
+	}
+	break;
+
+	case 4:
+		system("cls");
+		cout << "[+] Квадрат\n\n";
+		cout << "[+] Размер: " << endl;
+		cin >> lenghtLine;
+		cout << "[+] Текстура: ";
+		char texture;
+		cin >> texture;
+		for (int x = 0; x < lenghtLine; x++) {
+			for (int y = 0; y < lenghtLine; y++) {
+				if (y == 0 || y == lenghtLine - 1 || x == 0 || x == lenghtLine - 1) {
+					cout << texture << " ";
+				}
+				else {
+					cout << "  ";
+				}
+			}
+			cout << "\n";
+		}
+		
+	break;
+
+	case 5:
+		system("cls");
+		cout << "Прямоугольник \n\n";
+		cout << "[+] Введите длину:";
+		int lenght;
+		cin >> lenght;
+		cout << "\n[+] Введите ширину:";
+		int width;
+		cin >> width;
+		cout << "[+] Текстура: ";
+		cin >> textureLine;
+
+		for (int y = 0; y < width; y++)
+		{
+			for (int x = 0; x < lenght; x++) {
+				if (x == 0 || x == lenght - 1 || y == 0 || y == lenght -1 || y == width - 1) {
+					cout << textureLine << " ";
+				}
+				else {
+					cout << "  ";
+				}
+
+			}
+			cout << "\n";
+		}
+		break;
+	case 6:
+		system("cls");
+		cout << "Треугольник \n\n";
+		cout << "[+] Размер: " << endl;
+		cin >> lenghtLine;
+		cout << "[+] Текстура: ";
+		cin >> texture;
+		for (int x = 0; x < lenghtLine; x++) {
+			for (int y = 0; y < lenghtLine; y++) {
+				if (y == lenghtLine/2 + x || y == lenghtLine/2 - x || x == lenghtLine/2) {
+					cout << texture << " ";
+				}
+				else {
+					cout << ". ";
+				}
+			}
+			cout << "\n";
+		}
+		break;
+	case 7:
+		system("cls");
+		cout << "Плюсик \n\n";
+		cout << "[+] Размер: " << endl;
+		cin >> lenghtLine;
+		cout << "[+] Текстура: ";
+		cin >> texture;
+		for (int x = 0; x < lenghtLine; x++) {
+			for (int y = 0; y < lenghtLine; y++) {
+				if (y == lenghtLine / 2 || x == lenghtLine / 2 ) {
+					cout << texture << " ";
+				}
+				else {
+					cout << ". ";
+				}
+			}
+			cout << "\n";
+		}
+		break;
+
+	}
+	int _; cin >> _;
+	return 0;
+
+}

@@ -1,0 +1,167 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	setlocale(0, "");
+
+	cout << "Переводчик\n\n";
+
+		cout << "[+] Переводчик\n";
+		cout << "[1] Русские слова\n";
+		cout << "[2] Английские слова\n";
+		cout << "[3] Выйти\n";
+
+		cout << "Выберети тип словаря\n";
+
+		int language1;
+		int language2;
+		cin >> language1;
+
+		switch (language1) {
+		case 1:
+			cout << "\nРусско-английский перевод\n\n";
+
+			cout << "[1] Манёвр\n";
+			cout << "[2] Конденсация\n";
+			cout << "[3] Занимать\n";
+			cout << "[4] Замыкание\n";
+			cout << "[5] Груз\n";
+			cout << "[6] Дополнение\n";
+			cout << "[7] Пастух\n";
+			cout << "[8] Эволюция\n";
+			cout << "[9] Заход\n";
+			cout << "[10] Расход\n";
+			cout << "[11] Вскрыть\n";
+			cout << "[12] Проезд\n";
+			cout << "[13] Дорога\n";
+			cout << "[14] Свист\n";
+			cout << "[15] Страна\n";
+
+			cout << "Выберете номер слова для перевода: ";
+			cin >> language2;
+			switch (language2)
+			{
+			case 1:
+				cout << "\nManeuver";
+				break;
+			case 2:
+				cout << "\nCondensation";
+				break;
+			case 3:
+				cout << "\nBorrow";
+				break;
+			case 4:
+				cout << "\nClosure";
+				break;
+			case 5:
+				cout << "\nCargo";
+				break;
+			case 6:
+				cout << "\nAddition";
+				break;
+			case 7:
+				cout << "\nShepherd";
+				break;
+			case 8:
+				cout << "\nEvolution";
+				break;
+			case 9:
+				cout << "\nSunset";
+				break;
+			case 10:
+				cout << "\nConsumption";
+				break;
+			case 11:
+				cout << "\nOpen";
+				break;
+			case 12:
+				cout << "\nTravel";
+				break;
+			case 13:
+				cout << "\nRoad";
+				break;
+			case 14:
+				cout << "\nWhistling";
+				break;
+			case 15:
+				cout << "\nCountry";
+				break;
+			}
+			break;
+		case 2:
+			cout << "\nАнгло-русский перевод\n\n";
+
+			cout << "[1] Maneuver\n";
+			cout << "[2] Condensation\n";
+			cout << "[3] Borrow\n";
+			cout << "[4] Closure\n";
+			cout << "[5] Cargo\n";
+			cout << "[6] Addition\n";
+			cout << "[7] Shepherd\n";
+			cout << "[8] Evolution\n";
+			cout << "[9] Sunset\n";
+			cout << "[10] Consumptio\n";
+			cout << "[11] Open\n";
+			cout << "[12] Travel\n";
+			cout << "[13] Road\n";
+			cout << "[14] Whistling\n";
+			cout << "[15] Country\n";
+
+			cout << "Выберите номер слова для перевода: ";
+			cin >> language1;
+
+			switch (language1)
+			{
+			case 1:
+				cout << "\nМанёвр";
+				break;
+			case 2:
+				cout << "\nКонденсация";
+				break;
+			case 3:
+				cout << "\nЗанимать";
+				break;
+			case 4:
+				cout << "\nЗамыкание";
+				break;
+			case 5:
+				cout << "\nГруз";
+				break;
+			case 6:
+				cout << "\nДополнение";
+				break;
+			case 7:
+				cout << "\nПастух";
+				break;
+			case 8:
+				cout << "\nЭволюция";
+				break;
+			case 9:
+				cout << "\nЗаход";
+				break;
+			case 10:
+				cout << "\nРасход";
+				break;
+			case 11:
+				cout << "\nВскрыть";
+				break;
+			case 12:
+				cout << "\nПроезд";
+				break;
+			case 13:
+				cout << "\nДорога";
+				break;
+			case 14:
+				cout << "\nСвист";
+				break;
+			case 15:
+				cout << "\nСтрана";
+				break;
+
+			}
+			break;
+		//case 3: 
+		}
+	return 0;
+}

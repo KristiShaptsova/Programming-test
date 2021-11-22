@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	setlocale(0, "");
+
+	cout << "[К] Калькуляор" << endl << endl;
+	cout << "[+] Сложение" << endl << endl;
+	cout << "[-] Вычетание" << endl << endl;
+	cout << "[*] Умножение" << endl << endl;
+	cout << "[/] Деление" << endl << endl;
+	cout << "[!] Введите операцию: ";
+	char operation;
+	cin >> operation;
+
+	cout << "[!] Введите превое число: ";
+	float number1;
+	cin >> number1;
+
+	cout << "[!] Введите второе число:";
+	float number2;
+	cin >> number2;
+
+	if (operation == '+') {
+		cout << "[+] Результат: " << number1 << " + " << number2 << " = " << number1 + number2;
+	} else 
+		if (operation == '-') {
+			cout << "[-] Результат: " << number1 << " - " << number2 << " = " << number1 - number2;
+		} else
+			if (operation == '*') {
+				cout << "[*] Результат: " << number1 << " * " << number2 << " = " << number1 * number2;
+			}
+			else
+				if (operation == '/') {
+					cout << "[/] Результат: " << number1 << " / " << number2 << " = " << number1 / number2;
+				}
+				else
+					int _; cin >> _;
+
+	return 0;
+}
