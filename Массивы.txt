@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    setlocale(0, "");
+    srand(time(NULL));
+
+    cout << "\a\n\nДобро пожаловать в программу  - \"Массивы\"\t\t\t\n";
+    cout << "_______________________________________\n";
+
+    const int SIZE = 10;
+
+    int array_int[SIZE];
+    short array_short[SIZE];
+    long array_long[SIZE] = { 1,10,20,30,40,50,5,15,25,35 };
+    char array_char[SIZE] = { 'a', 'b', 'c', 'd', 'e', 'f', 'j', 'h', 'i', 'g' };
+    bool array_bool[SIZE] = { 0,0,0,1,1,0,1,1,1,1 };
+    double array_double[SIZE];
+    float array_float[SIZE] = { 284.318, 1.999, 2.8888, 3.7777, -4.6666, -5.5555, -6.4444,-7.3333, 8.2222, -0.1111 };
+    string array_str[SIZE] = { "colors", "size", "error", "arrays", "function", "cycles", "variablesr", "sample", "compiler", "interpreter", };
+
+    cout << "\nInteger" << endl;
+    cout << "____________\t\t___\n";
+    for (int i = 0; i < SIZE; i++)
+    {
+        array_int[i] = rand() % 200 + (-100);
+        cout << "array[" << i << "] " << "\t|\t" << array_int[i] << endl;
+    }
+
+    cout << "\nShort" << endl;
+    cout << "__________\t\t___\n";
+    for (int i = 0; i < SIZE; i++)
+    {
+        array_short[i] = rand() % 200 + (-100);
+        cout << "array[" << i << "] " << "\t|\t" << array_short[i] << endl;
+    }
+
+    cout << "\nLong" << endl;
+    cout << "__________\t\t___\n";
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << "array[" << i << "] " << "\t|\t" << array_long[i] << endl;
+    }
+
+    cout << "\nChar" << endl;
+    cout << "__________\t\t___\n";
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << "array[" << i << "] " << "\t|\t" << array_char[i] << endl;
+    }
+
+    cout << "\nBoolean" << endl;
+    cout << "__________\t\t___\n";
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << "array[" << i << "] " << "\t|\t" << array_bool[i] << endl;
+    }
+
+    cout << "\nDouble" << endl;
+    cout << "__________\t\t___\n";
+    for (int i = 0; i < SIZE; i++)
+    {
+        array_double[i] = (double)rand() / RAND_MAX * (25.0 - 0.01) + 0.01;;
+        cout << "array[" << i << "] " << "\t|\t" << array_double[i] << endl;
+    }
+
+    cout << "\nFloat" << endl;
+    cout << "__________\t\t___\n";
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << "array[" << i << "] " << "\t|\t" << array_float[i] << endl;
+    }
+    cout << endl;
+
+    cout << "\String" << endl;
+    cout << "__________\t\t___\n";
+
+    for (int i = 0; i < SIZE; i++)
+    {
+        cout << "array[" << i << "] " << "\t|\t" << array_str[i] << endl;
+    }
+    cout << endl;
+
+    system("pause");
+    return 0;
+}

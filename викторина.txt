@@ -1,0 +1,237 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <iostream>
+#include <windows.h>
+#include <sstream>
+#include <cmath>
+#include <string>
+#include <ctime>
+#include <ratio>
+#include <chrono>
+//Таймер только на вопрос (~1 мин на вопрос)
+using namespace std;
+
+size_t Minutes = 1; //сколько минут отведем на игру
+int numberOfQuestions = 15;
+int countOfAttempts = 3;
+
+void menu();
+void settings();
+bool playingGame();
+
+bool playingGame(time_t i);
+
+string Answer[15][2] = {
+        {"Какой вес имеет тип данных double?\n [1] - 1\n [2] - 2\n [3] - 4\n [4] - 8","4"},
+        {"Что является пространством имен в с++?\n [1] - namespace\n [2] - include\n [3] - void\n [4] - не знаю","2"},
+        {"Что не относится к форме инициализации переменных?\n [1] - int i=1\n [2] - int i[1] ={1,2}\n [3] - int\n [4] - int(1)","3"},
+        {"В каких конструкциях используются логическое условие?\n [1] - во всех\n [2] - цикл\n [3] - массив\n [4] -функции ","2"},\
+        {"Что делает ключевое слово return?\n [1] - завершает функцию\n [2] - выполняет функцию\n [3] -завершает выполнение функции и возвращает управление вызывающей функции\n [4] - ничего","3"},
+        {"Какие виды массивов существуют?\n [1] - Одномерный\n [2] - Двумерный\n [3] - Пятимерный\n [4] - их нет","1,2,3"},
+        {"Кто является создателем с++?\n [1] -Бьерн Страустрап\n [2] - Брендан Эйх\n [3] - Андрей Бреслав\n [4] - Юкихиро Мацумото","1"},
+        {"На какой платформе мы программируем ?\n [1] -Brackets\n [2] - Microsoft Visual Code\n [3] -Microsoft Visual Studio\n [4] - 1C Предприятие","3"},
+        {"Какой язык не входит в семейство языков Си?\n [1] - С++\n [2] - Java\n [3] - С#\n [4] - С","2"},
+        {"Какой тип данных имеет самый большой вес?\n [1] - int\n [2] - char\n [3] - string\n [4] - double","4"},
+        {"Сколько типов данных мы разобрали за это полугодие?\n [1] - 8\n [2] - 6\n [3] - 10\n [4] - 1","1"},
+        {"На что я сдам экзамен?\n [1] - 5\n [2] -4\n [3] - 3\n [4] - 5","1"},
+        {"Во сколько начало экзамена по программированию?\n [1] - 9\n [2] - 10\n [3] - 11\n [4] - 12","1"},
+        {"Сколько человек в группе 2ИСП11-15?\n [1] - 25\n [2] - 21\n [3] - 19\n [4] - 24","2"},
+        {"Вам понравилась эта викторина?\n [1] - да\n [2] - нет\n [3] - не знаю\n [4] - :)","1"}
+};
+
+
+void clear() {
+    system("cls");
+}
+
+// 50:50
+void help_draw(int indexAnswer) {
+    short indexFakeOtvet = 1 + rand() % 4;
+    const char* relAnswerString = Answer[indexAnswer][1].c_str();
+    int relAnswerInt = atoi(relAnswerString);
+    while (indexFakeOtvet == relAnswerInt) {
+        indexFakeOtvet = 1 + rand() % 4;
+    }
+    cout << "\n Ответ: " << Answer[indexAnswer][1] << " или " << indexFakeOtvet << "\n";
+}
+
+//Рандомизация вопроса
+void randomizeQuestion() {
+    srand(time(NULL));
+    for (int i = 0; i < sizeof(Answer) / sizeof(Answer[0]); i++) {
+        short randAnswer = rand() % (sizeof(Answer) / sizeof(Answer[0]));
+        swap(Answer[i][0], Answer[randAnswer][0]);
+        swap(Answer[i][1], Answer[randAnswer][1]);
+    }
+}
+
+// *КОД ВИКТОРИНЫ
+
+void rules() {
+    clear();
+    cout << "\n\n \"Правила\" \t\t\t\n";
+    cout << " Правила легкие. \n Хорошей игры; \n";
+    system("pause");
+    clear();
+    menu();
+}
+
+void settings() {
+    clear();
+    cout << "\n\n \"Настройки\" \t\t\n";
+    cout << "\n[1] Выбрать количество вопросов";
+    cout << "\n[2] Выбрать количество попыток";
+    cout << "\n[3] Выбрать время игры";
+    cout << "\n\n[0] Выход";
+    cout << "\nВыберите действие: ";
+    short condition; cin >> condition;
+    switch (condition) {
+    case 0:
+        menu();
+        break;
+    case 3:
+        cout << "\nВведите, количество минут которое будет длится игра:";
+        cin >> Minutes;
+        break;
+    case 1:
+        clear();
+        cout << "\n\n \"Количество вопросов\" \t\t\t\n";
+        cout << "[1] 5 вопросов\n";
+        cout << "[2] 10 вопросов\n";
+        cout << "[3] 15 вопросов\n\n";
+        cout << "[0] Вернуться назад\n";
+        cin >> condition;
+        switch (condition)
+        {
+        case 1:
+            /* Изменение переменной вопросов на 5 */
+            numberOfQuestions = 5;
+            settings();
+            break;
+        case 2:
+            /* Изменение переменной вопросов на 10 */
+            numberOfQuestions = 10;
+            settings();
+            break;
+        case 3:
+            /* Изменение переменной вопросов на 15 */
+            numberOfQuestions = 15;
+            settings();
+            break;
+        default:
+            clear();
+            cout << "Ошибка";
+            settings();
+            break;
+        }
+        break;
+    case 2:
+        clear();
+        cout << "\n\n \"Количество попыток\" \t\t\t\n";
+        cout << "Выберите количество попыток от 1 до 5: ";
+        short condition;
+        cin >> condition;
+        if (condition < 1 || condition > 5) {
+            cout << "Попыток лишь от 1 до 5. Повторите ввод -> ";
+            cin >> countOfAttempts;
+        }
+        else {
+            countOfAttempts = condition;
+        }
+        settings();
+        break;
+    default:
+        clear();
+        cout << "Ошибка";
+        break;
+    }
+    menu();
+}
+void play() {
+    clear();
+    int sum = 0;
+    time_t now = time(0);
+    short fifityFifty = 0;
+    time_t stopPlayTime = now + (60 * Minutes);  //Когда закончить игру
+    for (int i = 0; i < numberOfQuestions and countOfAttempts>0 and playingGame(stopPlayTime); i++) {
+        Sleep(600);
+        clear();
+        cout << "\nУ вас осталось: " << countOfAttempts << " жизней\n";
+    goAnswer:
+        string condition;
+        if (fifityFifty == 1) {
+            help_draw(i);
+            fifityFifty = 3;
+        }
+        else if (fifityFifty == 0)
+            cout << "Что бы использовать подсказку напишите: \"50/50\"\n";
+        cout << Answer[i][0] << "\nВведите ответ на вопрос:";
+        cin >> condition;
+        if (condition == Answer[i][1]) {
+            sum++;
+            cout << "\nВы ответили правильно!";
+        }
+        else if (condition == "50/50" and fifityFifty != 3) {
+            fifityFifty = 1;
+            goto goAnswer;
+        }
+        else if (condition != "1" and condition != "2" and condition != "3" and condition != "4") {
+            cout << "Играйте честно!";
+            goto goAnswer;
+        }
+        else {
+            cout << " ответили не правильно \nМинус жизнь";
+            countOfAttempts--;
+        }
+    }
+    cout << "\t Игра окончена, вы ответили правильно, на " << sum << " вопросов из " << numberOfQuestions;
+}
+
+//Таймер
+bool playingGame(time_t stopTime) {
+    char* stopTime2 = ctime(&stopTime);
+    cout << "\nИгра закончится в: \n" << stopTime2 << "\n";
+    time_t now = time(0);
+    if (stopTime > now) {
+        // Время осталось еще
+        return true;
+    }
+    // Время нет
+    cout << "\nВремя игры истекло\n";
+    return false;
+}
+
+void menu() {
+    clear();
+    cout << "\a\n\nДобро пожаловать в игру-программу — \"Викторина\"\t\t\t\n";
+    cout << "\n[1] Играть";
+    cout << "\n[2] Настройки";
+    cout << "\n[3] Правила";
+    cout << "\n\n[0] Выход";
+    cout << "\nВыберите действие: ";
+    short condition; cin >> condition;
+    switch (condition) {
+    case 0:
+        break;
+    case 1:
+        randomizeQuestion();
+        play();
+        break;
+    case 2:
+        settings();
+        break;
+    case 3:
+        rules();
+        break;
+    default:
+        clear();
+        menu();
+    }
+}
+
+int main(int argc, char* argv[]) {
+    setlocale(0, "");
+    //plaingGame();
+    menu();
+    system("pause");
+    return 0;
+}

@@ -1,0 +1,169 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+void clear();
+void menu();
+
+void clear() {
+    system("cls");
+}
+
+void ConsoleColor()
+{
+    string background, foreground, color;
+
+    cout << "\n\n_____________________\n    Цвет Консоли\n____________________\n";
+    cout << "[0] - Чёрный\n";
+    cout << "[1] - Синий\n";
+    cout << "[2] - Зелёный\n";
+    cout << "[3] - Голубой\n";
+    cout << "[4] - Красный\n";
+    cout << "[5] - Лиловый\n";
+    cout << "[6] - Жёлтый\n";
+    cout << "[7] - Белый\n";
+    cout << "[8] - Серый\n";
+    cout << "____________________\n";
+    cout << "Выберите цвет фона: ";
+    cin >> background;
+    cout << "Выберите цвет текста: ";
+    cin >> foreground;
+    cout << "____________________\n";
+
+    color = "color " + background + foreground;
+    const char* userColor = color.c_str();
+    system(userColor);
+    system("pause"); menu();
+}
+
+void getSizeInt()
+{
+    cout << "Размер типа данных (int) = " << sizeof(int) << endl; 
+    system("pause");
+    system("cls");
+    menu();
+}
+void getSizeShort()
+{
+    cout << "Размер типа данных (short) = " << sizeof(short) << endl; 
+    system("pause"); 
+    system("cls"); 
+    menu();
+}
+void getSizeChar()
+{
+    cout << "Размер типа данных (char) = " << sizeof(char) << endl;
+    system("pause");
+    system("cls");
+    menu();
+}
+void getSizeFloat()
+{
+    cout << "Размер типа данных (float) = " << sizeof(float) << endl; 
+    system("pause");
+    system("cls");
+    menu();
+}
+void getSizeDouble()
+{
+    cout << "Размер типа данных (double) = " << sizeof(double) << endl; 
+    system("pause");
+    system("cls"); 
+    menu();
+}
+void getSizeBool()
+{
+    cout << "Размер типа данных (bool) = " << sizeof(bool) << endl;
+    system("pause");
+    system("cls");
+    menu();
+}
+
+void Square() {
+    cout << "\n\n____________________\n    Квадрат\n-____________________\n";
+    cout << "[+] Размер: " << endl;
+    cin >> lenghtLine;
+    cout << "[+] Текстура: ";
+    char texture;
+    cin >> texture;
+    for (int x = 0; x < lenghtLine; x++) {
+        for (int y = 0; y < lenghtLine; y++) {
+            if (y == 0 || y == lenghtLine - 1 || x == 0 || x == lenghtLine - 1) {
+                cout << texture << " ";
+            }
+            else {
+                cout << "  ";
+            }
+        }
+        cout << "\n";
+    }
+}
+
+void Text()
+{
+
+    cout << "\n\n____________________\n    Вывод текста\n____________________\n\n";
+    cout << "____________________\n";
+    cout << "Привет, я функция!\n";
+    cout << "____________________\n";
+
+    system("pause"); menu();
+}
+
+void menu() {
+    cout << "\a\n\nДобропожаловать в программу — \"Функции\"\t\t\t\n";
+    cout << "——————————————————————————————————————————————\n";
+    cout << "[0] Выход\n";
+    cout << "____________________\n";
+    cout << "[1] Изменить цвет консоли\n";
+    cout << "[2] Вывод размера типа данных — (int)\n";
+    cout << "[3] Вывод размера типа данных — (short)\n";
+    cout << "[4] Вывод размера типа данных — (char)\n";
+    cout << "[5] Вывод размера типа данных — (float)\n";
+    cout << "[6] Вывод размера типа данных — (double)\n";
+    cout << "[6] Вывод размера типа данных — (bool)\n";
+    cout << "[7] Вывести квадрат\n";
+    cout << "[8] Вывести текст\n";
+    cout << "____________________\n";
+    cout << "\n\aВыберите действие: ";
+    short condition; cin >> condition;
+    switch (condition) {
+    case 0:
+        abort();
+        break;
+    case 1:
+        ConsoleColor();
+        break;
+    case 2:
+        getSizeInt();
+        break;
+    case 3:
+        getSizeShort();
+        break;
+    case 4:
+        getSizeChar();
+        break;
+    case 5:
+        getSizeFloat();
+        break;
+    case 6:
+        getSizeDouble();
+        break;
+    case 7:
+        Square();
+        break;
+    case 8:
+        Text();
+        break;
+    default:
+        clear();
+        menu();
+    }
+}
+
+int main(int argc, char* argv[]) {
+    setlocale(0, "");
+    menu();
+    system("pause");
+    return 0;
+}

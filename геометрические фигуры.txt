@@ -7,7 +7,7 @@ int main() {
 	char textureLine;
 
 	cout << "1[+] Программа <Геометрические фигуры>\n\n\n";
-	cout << "[1] Линия\n\n[2] Квадрат\n[3] Прямоугольник\n[4]Периметр квадрата\n[5]Периметр прямоугольника\n[6]Треугольник\n[7]Плюсик\n\n[+] Выберите фигуру:";
+	cout << "[1] Линия\n\n[2] Квадрат\n[3] Прямоугольник\n[4]Периметр квадрата\n[5]Периметр прямоугольника\n[6]Треугольник\n[7]Плюсик\n[8]Решетка\n[9]Крест\n\n[+] Выберите фигуру:";
 	cin >> figure;
 
 	switch (figure) {
@@ -108,8 +108,8 @@ int main() {
 			}
 			cout << "\n";
 		}
-		
-	break;
+
+		break;
 
 	case 5:
 		system("cls");
@@ -126,7 +126,7 @@ int main() {
 		for (int y = 0; y < width; y++)
 		{
 			for (int x = 0; x < lenght; x++) {
-				if (x == 0 || x == lenght - 1 || y == 0 || y == lenght -1 || y == width - 1) {
+				if (x == 0 || x == lenght - 1 || y == 0 || y == lenght - 1 || y == width - 1) {
 					cout << textureLine << " ";
 				}
 				else {
@@ -146,7 +146,7 @@ int main() {
 		cin >> texture;
 		for (int x = 0; x < lenghtLine; x++) {
 			for (int y = 0; y < lenghtLine; y++) {
-				if (y == lenghtLine/2 + x || y == lenghtLine/2 - x || x == lenghtLine/2) {
+				if (y == lenghtLine / 2 + x || y == lenghtLine / 2 - x || x == lenghtLine / 2) {
 					cout << texture << " ";
 				}
 				else {
@@ -165,7 +165,7 @@ int main() {
 		cin >> texture;
 		for (int x = 0; x < lenghtLine; x++) {
 			for (int y = 0; y < lenghtLine; y++) {
-				if (y == lenghtLine / 2 || x == lenghtLine / 2 ) {
+				if (y == lenghtLine / 2 || x == lenghtLine / 2) {
 					cout << texture << " ";
 				}
 				else {
@@ -175,7 +175,45 @@ int main() {
 			cout << "\n";
 		}
 		break;
-
+	case 8:
+		system("cls");
+		cout << "Решетка \n\n";
+		cout << "[+] Размер: " << endl;
+		cin >> lenghtLine;
+		cout << "[+] Текстура: ";
+		cin >> texture;
+		for (int x = 0; x < lenghtLine; x++) {
+			for (int y = 0; y < lenghtLine; y++) {
+				if (y == (lenghtLine / 2) + 2 || x == (lenghtLine / 2) + 2 || y == (lenghtLine / 2) - 2 || x == (lenghtLine / 2) - 2) {
+					cout << texture << " ";
+				}
+				else {
+					cout << ". ";
+				}
+			}
+			cout << "\n";
+		}
+		break;
+	case 9:
+		system("cls");
+		cout << "Крест \n\n";
+		cout << "[+] Размер: " << endl;
+		cin >> lenghtLine;
+		cout << "[+] Текстура: ";
+		cin >> texture;
+		short c = 0;
+		for (int x = 0; x < lenghtLine; x++) {
+			for (int y = 0; y <= lenghtLine; y++) {
+				if (x == y || x + y == 10 ) {
+					cout << texture << " ";
+				}
+				else {
+					cout << ". ";
+				}
+			}
+			cout << "\n";
+		}
+		break;
 	}
 	int _; cin >> _;
 	return 0;
